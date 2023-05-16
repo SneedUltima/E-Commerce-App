@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar h-[80px]">
-      <div className="wrapper flex justify-between px-3 py-6">
+      <div className="wrapper flex justify-between px-3 py-4">
         <div className="left flex gap-5 items-center">
           <div className="flex items-center">
             <span>AUD</span>
