@@ -2,8 +2,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
 import Product from "./Pages/Product/Product";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 const Layout = () => {
   return (
