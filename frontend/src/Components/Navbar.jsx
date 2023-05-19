@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { BsSearch } from "react-icons/bs";
 import { MdPersonOutline } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import Cart from "./Cart";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="navbar h-[80px]">
       <div className="wrapper flex justify-between px-3 py-4">
@@ -48,7 +51,7 @@ const Navbar = () => {
             <div>
               <AiOutlineHeart className=" cursor-pointer text-gray-600 h-5 w-5" />
             </div>
-            <div className="flex items-center ">
+            <div onClick={() => setOpen(!open)} className="flex items-center ">
               <RiShoppingCartLine className=" cursor-pointer text-gray-600 h-5 w-5 relative" />
               <span
                 className=" text-sm bg-green-500 text-white
@@ -60,6 +63,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {open && <Cart />}
     </div>
   );
 };
