@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../../Components/Slider";
 import FeaturedProjects from "../../Components/FeaturedProjects";
 import Categories from "../../Components/Categories";
+import Contact from "../../Components/Contact";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <FeaturedProjects type="Featured" />
       <Categories />
       <FeaturedProjects type="Trending" />
+      <Contact />
     </div>
   );
 };
