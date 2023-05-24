@@ -51,7 +51,7 @@ const Navbar = () => {
             <div>
               <AiOutlineHeart className=" cursor-pointer text-gray-600 h-5 w-5" />
             </div>
-            <div onClick={() => setOpen(!open)} className="flex items-center ">
+            <div onClick={() => setOpen(!open)} className="flex items-center">
               <RiShoppingCartLine className=" cursor-pointer text-gray-600 h-5 w-5 relative" />
               <span
                 className=" text-sm bg-green-500 text-white
