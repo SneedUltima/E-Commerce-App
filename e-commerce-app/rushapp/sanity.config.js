@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'RushEcommerce',
+  title: 'RushApp',
 
-  projectId: 'pp9st6ny',
+  projectId: '2x4y1z9t',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
