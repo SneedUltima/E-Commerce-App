@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { urlFor } from "../lib/client";
 
 const Card = ({ item }) => {
   return (
@@ -8,16 +9,16 @@ const Card = ({ item }) => {
         <div className="image">
           <img
             className="w-[100%] h-[300px] object-cover hover:scale-105 duration-500"
-            src={item.img}
+            src={urlFor(item.image && item.image[0])}
             alt=""
           />
         </div>
         <div>
-          <h2 className=" text-lg font-semibold">{item.title}</h2>
+          <h2 className=" text-lg font-semibold">{item.name}</h2>
         </div>
         <div className="flex gap-[20px]">
           <h3 className=" text-xl font-bold text-slate-400 line-through">
-            ${item.oldPrice}
+            ${item.oldprice}
           </h3>
           <h3 className=" text-xl font-bold">${item.price}</h3>
         </div>
