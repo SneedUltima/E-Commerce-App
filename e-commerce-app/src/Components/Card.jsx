@@ -4,7 +4,7 @@ import { urlFor } from "../lib/client";
 
 const Card = ({ item }) => {
   return (
-    <Link to={`/product/${item.id}`}>
+    <Link to={`/product/${item.slug.current}`}>
       <div className="card w-[200px] flex flex-col gap-[10px] mb-[50px]">
         <div className="image">
           <img

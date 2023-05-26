@@ -1,15 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OptimumWhey from "../img/optimumwhey.jpg";
 import DymatizeProtein from "../img/DymatizeElite.jpg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { FaBalanceScale } from "react-icons/fa";
+import { client, urlFor } from "../lib/client";
+import { useParams } from "react-router-dom";
 
 const Product = () => {
+  const params = useParams();
+  console.log(params);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState(null);
+
+  // useEffect(() => {
+  //   client
+  //     .fetch(
+  //       `*[slug.current == ${params.id}]{
+  //       title,
+  //       slug,
+  //       mainImage{
+  //         asset->{
+  //           _id,
+  //           url
+  //          }
+  //        },
+  //      body,
+  //     "name": name
+  //     "image": image
+  //    }`,
+  //       { params }
+  //     )
+  //     .then((data) => setProduct(data[0]))
+  //     .catch(console.error);
+  // }, [params]);
+
+  useEffect(() => {
+    client
+      .fetch(`*[_type == "product" && slug.current == '${params.id}'][0]`)
+      .then((data) => setProduct(data))
+      .catch(console.error);
+  }, []);
+
+  console.log(product);
 
   const images = [OptimumWhey, DymatizeProtein];
+
+  if (!product) return <div>Loading...</div>;
 
   return (
     <div className="product py-[20px] px-[50px] flex gap-[50px]">
@@ -17,33 +55,33 @@ const Product = () => {
         <div className="images basis-1/5">
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
-            src={images[0]}
+            src={urlFor(product.image[0])}
             alt=""
-            onClick={(e) => setSelectedImage(0)}
+            onClick={(e) => setSelectedImage(product.image[0])}
           />
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer"
-            src={images[1]}
+            src={urlFor(product.image[0])}
             alt=""
-            onClick={(e) => setSelectedImage(1)}
+            onClick={(e) => setSelectedImage(product.image[0])}
           />
         </div>
         <div className="mainImg basis-4/5">
           <img
             className="w-[100%] max-h-[800px] object-contain cursor-pointer"
-            src={images[selectedImage]}
+            src={
+              setSelectedImage === 0
+                ? urlFor(product.image[0])
+                : urlFor(product.image[0])
+            }
             alt=""
           />
         </div>
       </div>
       <div className="right flex flex-col gap-[30px] basis-3/6">
-        <h1 className="font-bold text-3xl">Title</h1>
-        <span className="text-[30px] font-semibold">$199</span>
-        <p className="font-[18px] text-justify">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
-          odio mollitia voluptate rem delectus alias incidunt, ipsum corrupti,
-          error unde officiis quas nisi itaque obcaecati?
-        </p>
+        <h1 className="font-bold text-3xl">{product?.name}</h1>
+        <span className="text-[30px] font-semibold">${product?.price}</span>
+        <p className="font-[18px] text-justify">{product?.details}</p>
         <div className="quantity flex items-center gap-[10px]">
           <button
             className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200"
