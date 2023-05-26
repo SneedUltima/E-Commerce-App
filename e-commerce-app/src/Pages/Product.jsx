@@ -84,21 +84,21 @@ const Product = () => {
         <p className="font-[18px] text-justify">{product?.details}</p>
         <div className="quantity flex items-center gap-[10px]">
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
             onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}
           >
             -
           </button>
           {quantity}
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
             onClick={() => setQuantity((prev) => prev + 1)}
           >
             +
           </button>
         </div>
         <div className="add flex flex-col gap-[20px]">
-          <button className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded">
+          <button className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded hover:bg-[#29aa58] ease-in-out duration-300">
             <RiShoppingCartLine /> Add to Cart
           </button>
           <div className="links flex gap-[20px]">
