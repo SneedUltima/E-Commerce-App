@@ -14,28 +14,6 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState(null);
 
-  // useEffect(() => {
-  //   client
-  //     .fetch(
-  //       `*[slug.current == ${params.id}]{
-  //       title,
-  //       slug,
-  //       mainImage{
-  //         asset->{
-  //           _id,
-  //           url
-  //          }
-  //        },
-  //      body,
-  //     "name": name
-  //     "image": image
-  //    }`,
-  //       { params }
-  //     )
-  //     .then((data) => setProduct(data[0]))
-  //     .catch(console.error);
-  // }, [params]);
-
   useEffect(() => {
     client
       .fetch(`*[_type == "product" && slug.current == '${params.id}'][0]`)
