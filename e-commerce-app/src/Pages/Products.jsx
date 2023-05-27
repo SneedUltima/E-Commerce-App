@@ -40,14 +40,14 @@ const Products = () => {
         <div className="filterItem mb-[30px]">
           <h2 className="font-bold text-xl mb-[20px]">Filter By Price</h2>
           <div className="inputItem">
-            <span className="font-semibold mr-[10px]">0</span>
+            <span className="font-semibold mr-[10px]">$0</span>
             <input
               type="range"
               min={0}
               max={120}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
-            <span className="font-semibold ml-[10px]">{maxPrice}</span>
+            <span className="font-semibold ml-[10px]">${maxPrice}</span>
           </div>
         </div>
         <div className="filterItem">
@@ -86,21 +86,21 @@ const Products = () => {
             "protein": (
               <img
                 src={proteinBanner}
-                alt=""
+                alt="product banner"
                 className="w-[100%] h-[300px] object-cover mb-[10px]"
               />
             ),
             "preworkout": (
               <img
                 src={preworkoutBanner}
-                alt=""
+                alt="product banner"
                 className="w-[100%] h-[300px] object-cover mb-[10px]"
               />
             ),
             "accessories": (
               <img
                 src={accessoriesBanner}
-                alt=""
+                alt="product banner"
                 className="w-[100%] h-[300px] object-cover mb-[10px]"
               />
             ),

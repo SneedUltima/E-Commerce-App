@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { client } from "../lib/client";
 
-const List = ({ catId }) => {
+const List = ({ catId, maxPrice }) => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "product" && category == "${catId}"]`)
+      .fetch(
+        `*[_type == "product" && category == "${catId}" && price <= ${maxPrice}]`
+      )
       .then((data) => setProducts(data))
       .catch(console.error);
-  }, [catId]);
+  }, [catId, maxPrice]);
 
   return (
     <div className="flex justify-between flex-wrap">
