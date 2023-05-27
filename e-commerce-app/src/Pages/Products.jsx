@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Banner from "../img/banner.jpeg";
 import List from "../Components/List";
 import { useParams } from "react-router-dom";
+import proteinBanner from "../img/protein-banner.jpg";
+import accessoriesBanner from "../img/accessories-banner.jpg";
+import preworkoutBanner from "../img/preworkout-banner.jpg";
 
 const Products = () => {
   const catId = useParams().id;
@@ -78,11 +81,31 @@ const Products = () => {
         </div>
       </div>
       <div className="right basis-9/12">
-        <img
-          src={Banner}
-          alt=""
-          className="w-[100%] h-[300px] object-cover mb-[10px]"
-        />
+        {
+          {
+            "protein": (
+              <img
+                src={proteinBanner}
+                alt=""
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+            "preworkout": (
+              <img
+                src={preworkoutBanner}
+                alt=""
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+            "accessories": (
+              <img
+                src={accessoriesBanner}
+                alt=""
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+          }[catId]
+        }
         <List catId={catId} maxPrice={maxPrice} sort={sort} />
       </div>
     </div>
