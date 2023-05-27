@@ -9,7 +9,7 @@ import preworkoutBanner from "../img/preworkout-banner.jpg";
 const Products = () => {
   const catId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(120);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("desc");
 
   return (
     <div className="px-[50px] py-[30px] flex">
@@ -45,6 +45,7 @@ const Products = () => {
               type="range"
               min={0}
               max={120}
+              value={120}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span className="font-semibold ml-[10px]">${maxPrice}</span>
