@@ -4,7 +4,7 @@ import List from "../Components/List";
 import { useParams } from "react-router-dom";
 
 const Products = () => {
-  const catId = parseInt(useParams().id);
+  const catId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(120);
   const [sort, setSort] = useState(null);
 

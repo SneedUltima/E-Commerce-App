@@ -41,5 +41,15 @@ export default {
       title: 'Details',
       type: 'string',
     },
+    {
+      name: 'isNew',
+      title: 'IsNew',
+      type: 'boolean',
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
   ],
 }

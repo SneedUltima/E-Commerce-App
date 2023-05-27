@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import OptimumWhey from "../img/optimumwhey.jpg";
-import DymatizeProtein from "../img/DymatizeElite.jpg";
-import Orgain from "../img/orgain.jpg";
-import VitalStrength from "../img/VitalStrength.jpg";
 import Card from "./Card";
 import { client } from "../lib/client";
 
-const List = () => {
+const List = ({ catId }) => {
   const [products, setProducts] = useState(null);
+
+  console.log({ catId });
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "product"]`)
+      .fetch(`*[_type == "product" && category == "${catId}"]`)
       .then((data) => setProducts(data))
       .catch(console.error);
   }, []);

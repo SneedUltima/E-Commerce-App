@@ -11,10 +11,12 @@ const FeaturedProjects = ({ type }) => {
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "product"]`)
+      .fetch(`*[_type == "product" && isNew == true]`)
       .then((data) => setProducts(data))
       .catch(console.error);
   }, []);
+
+  console.log(products);
 
   // const data = [
   //   {

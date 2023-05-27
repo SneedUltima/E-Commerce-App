@@ -19,13 +19,13 @@ const Navbar = () => {
             <RiArrowDownSLine className=" w-5" />
           </div>
           <div>
-            <Link to="/products/1">Preworkout</Link>
+            <Link to="/products/preworkout">Preworkout</Link>
           </div>
           <div>
-            <Link to="/products/2">Protein</Link>
+            <Link to="/products/protein">Protein</Link>
           </div>
           <div>
-            <Link to="/products/3">Accessories</Link>
+            <Link to="/products/accessories">Accessories</Link>
           </div>
         </div>
         <div className="center font-['Kanit'] text-2xl">
