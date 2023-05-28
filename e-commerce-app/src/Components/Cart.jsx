@@ -1,61 +1,104 @@
-import React from "react";
+import React, { useRef } from "react";
 import OptimumWhey from "../img/optimumwhey.jpg";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineShoppingCart } from "react-icons/ai";
+import { Toast } from "react-hot-toast";
+import { useStateContext } from "../Context/StateContext";
+import { urlFor } from "../lib/client";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const data = [
-    {
-      id: 1,
-      img: OptimumWhey,
-      title: "Optimum Nutrition Whey Protein",
-      desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis ipsum iste autem tenetur labore quam modi facilis, quae repellat optio? Fugiat suscipit beatae aperiam, molestiae eligendi magnam, reprehenderit vel alias sapiente labore officiis. Veritatis sequi perspiciatis quaerat. Maiores minus earum itaque, consequatur ad hic accusamus explicabo tempore. Sed, autem eius?",
-      oldPrice: 99,
-      price: 90,
-    },
-    {
-      id: 2,
-      img: OptimumWhey,
-      title: "Optimum Nutrition Whey Protein",
-      desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis ipsum iste autem tenetur labore quam modi facilis, quae repellat optio? Fugiat suscipit beatae aperiam, molestiae eligendi magnam, reprehenderit vel alias sapiente labore officiis. Veritatis sequi perspiciatis quaerat. Maiores minus earum itaque, consequatur ad hic accusamus explicabo tempore. Sed, autem eius?",
-      oldPrice: 99,
-      price: 90,
-    },
-  ];
+  const cartRef = useRef();
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    showCart,
+    toggleCartItemQuantity,
+  } = useStateContext();
+
   return (
-    <div className="cart absolute right-[20px] top-[80px] z-50 bg-white p-[20px] max-w-[800px]">
-      <h1 className="mb-[20px] text-gray-500 text-[24px] font-semibold">
-        Products in your cart
-      </h1>
-      {data?.map((item) => (
-        <div
-          className="item flex items-center gap-[20px] mb-[30px]"
-          key={item.id}
-        >
-          <img
-            className="w-[80px] h-[100px] object-contain"
-            src={item.img}
-            alt=""
-          />
-          <div className="details">
-            <h1 className="text-[18px] font-semibold">{item.title}</h1>
-            <p className=" text-gray-500 mb-[10px] text-[16px]">
-              {item.desc?.substring(0, 100)}
-            </p>
-            <div className="price font-semibold">1 x {item.price}</div>
+    <div
+      className=" w-[100vw] fixed top-0 right-0 z-30 ease-in duration-300 bg-neutral-700 bg-opacity-50"
+      ref={cartRef}
+      onClick={() => setShowCart(false)}
+    >
+      <div
+        className="relative float-right flex flex-col items-center justify-between w-[600px] h-[100vh] ease-in duration-300 z-50 bg-white py-2 px-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h1 className="mb-[20px] text-[24px] font-semibold">
+          Products in your cart ({totalQuantities}{" "}
+          {totalQuantities === 1 ? "item" : "items"})
+        </h1>
+        {cartItems.length < 1 && (
+          <div className="flex flex-col items-center">
+            <AiOutlineShoppingCart className="text-[100px]" />
+            <h3>Your shopping cart is empty</h3>
+            <Link href="/">
+              <button
+                onClick={() => setShowCart(false)}
+                className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mt-[10px] hover:bg-[#223e85] ease-in-out duration-300"
+              >
+                Continue Shopping
+              </button>
+            </Link>
           </div>
-          <AiOutlineDelete className=" text-red-700 text-[30px] cursor-pointer" />
+        )}
+        <div className=" overflow-auto max-h-[70vh]">
+          {cartItems.length >= 1 &&
+            cartItems.map((item) => (
+              <div key={item._id} className="flex mb-10 gap-[30px]">
+                <img
+                  className="w-[25%] h-[25%]"
+                  src={urlFor(item?.image[0])}
+                  alt="cart image"
+                />
+                <div className="flex flex-col justify-between w-full">
+                  <div className="flex flex-col">
+                    <div>
+                      <p className="text-lg  font-semibold">{item.name}</p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-semibold">${item.price}</p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="quantity flex items-center gap-[10px]">
+                      <button
+                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
+                      >
+                        -
+                      </button>
+                      {item.quantity}
+                      <button
+                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <button className="bg-white">
+                      <AiOutlineDelete className=" text-red-500 text-2xl" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
-      ))}
-      <div className="total flex justify-between font-semibold text-[18px] mb-[20px]">
-        <span className="font-bold text-lg">SUBTOTAL</span>
-        <span className="font-bold text-lg">$100</span>
+        {cartItems.length >= 1 && (
+          <div className="total flex justify-between font-semibold text-[18px] mb-[20px] gap-20">
+            <p className="font-bold text-lg">Subtotal: </p>
+            <p className="font-bold text-lg">${totalPrice}</p>
+          </div>
+        )}
+        {cartItems.length >= 1 && (
+          <button className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[10px] hover:bg-[#223e85] ease-in-out duration-300">
+            Proceed to Checkout
+          </button>
+        )}
       </div>
-      <button className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[10px]">
-        Proceed to Checkout
-      </button>
-      <span className="text-red-500 cursor-pointer text-[16px]">
-        Reset Cart
-      </span>
     </div>
   );
 };

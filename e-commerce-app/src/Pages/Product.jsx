@@ -72,15 +72,15 @@ const Product = () => {
         <div className="add flex flex-col gap-[20px]">
           <button
             onClick={() => onAdd(product, qty)}
-            className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded hover:bg-[#29aa58] ease-in-out duration-300"
+            className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded ease-in-out duration-300 hover:bg-[#223e85]"
           >
             <RiShoppingCartLine /> Add to Cart
           </button>
           <div className="links flex gap-[20px]">
-            <div className="item flex items-center gap-[10px] text-[#22C55E]">
+            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)]">
               <AiOutlineHeart /> Add to Wishlist
             </div>
-            <div className="item flex items-center gap-[10px] text-[#22C55E]">
+            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)]">
               <FaBalanceScale /> Add to Compare
             </div>
           </div>

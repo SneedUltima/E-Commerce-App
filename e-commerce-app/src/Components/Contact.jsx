@@ -3,7 +3,7 @@ import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 
 const Contact = () => {
   return (
-    <div className="wrapper bg-[#22C55E] p-[20px] flex justify-center items-center">
+    <div className="wrapper bg-[#223e85] p-[20px] flex justify-center items-center">
       <div className="flex gap-20 justify-center items-center">
         <span className="text-white font-bold">GET IN TOUCH WITH US.</span>
         <div className="mail">

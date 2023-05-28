@@ -6,9 +6,12 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
+import { useStateContext } from "../Context/StateContext";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const { totalQuantities, showCart, setShowCart } = useStateContext();
+
+  console.log(totalQuantities);
 
   return (
     <div className="navbar h-[80px]">
@@ -51,19 +54,22 @@ const Navbar = () => {
             <div>
               <AiOutlineHeart className=" cursor-pointer text-gray-600 h-5 w-5" />
             </div>
-            <div onClick={() => setOpen(!open)} className="flex items-center">
+            <div
+              onClick={() => setShowCart(!showCart)}
+              className="flex items-center"
+            >
               <RiShoppingCartLine className=" cursor-pointer text-gray-600 h-5 w-5 relative" />
               <span
                 className=" text-sm bg-green-500 text-white
               h-5 w-5 rounded-full absolute right-[5px] top-[20px] flex items-center justify-center"
               >
-                0
+                {totalQuantities}
               </span>
             </div>
           </div>
         </div>
       </div>
-      {open && <Cart />}
+      {showCart && <Cart />}
     </div>
   );
 };
