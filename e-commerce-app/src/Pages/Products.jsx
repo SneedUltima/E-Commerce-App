@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Banner from "../img/banner.jpeg";
 import List from "../Components/List";
 import { useParams } from "react-router-dom";
+import proteinBanner from "../img/protein-banner.jpg";
+import accessoriesBanner from "../img/accessories-banner.jpg";
+import preworkoutBanner from "../img/preworkout-banner.jpg";
 
 const Products = () => {
-  const catId = parseInt(useParams().id);
+  const catId = useParams().id;
   const [maxPrice, setMaxPrice] = useState(120);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("desc");
 
   return (
     <div className="px-[50px] py-[30px] flex">
@@ -37,14 +40,15 @@ const Products = () => {
         <div className="filterItem mb-[30px]">
           <h2 className="font-bold text-xl mb-[20px]">Filter By Price</h2>
           <div className="inputItem">
-            <span className="font-semibold mr-[10px]">0</span>
+            <span className="font-semibold mr-[10px]">$0</span>
             <input
               type="range"
               min={0}
               max={120}
+              value={120}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
-            <span className="font-semibold ml-[10px]">{maxPrice}</span>
+            <span className="font-semibold ml-[10px]">${maxPrice}</span>
           </div>
         </div>
         <div className="filterItem">
@@ -78,11 +82,31 @@ const Products = () => {
         </div>
       </div>
       <div className="right basis-9/12">
-        <img
-          src={Banner}
-          alt=""
-          className="w-[100%] h-[300px] object-cover mb-[10px]"
-        />
+        {
+          {
+            "protein": (
+              <img
+                src={proteinBanner}
+                alt="product banner"
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+            "preworkout": (
+              <img
+                src={preworkoutBanner}
+                alt="product banner"
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+            "accessories": (
+              <img
+                src={accessoriesBanner}
+                alt="product banner"
+                className="w-[100%] h-[300px] object-cover mb-[10px]"
+              />
+            ),
+          }[catId]
+        }
         <List catId={catId} maxPrice={maxPrice} sort={sort} />
       </div>
     </div>
