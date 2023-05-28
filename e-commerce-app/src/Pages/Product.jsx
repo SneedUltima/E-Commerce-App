@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import OptimumWhey from "../img/optimumwhey.jpg";
-import DymatizeProtein from "../img/DymatizeElite.jpg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { FaBalanceScale } from "react-icons/fa";
 import { client, urlFor } from "../lib/client";
 import { useParams } from "react-router-dom";
+import { useStateContext } from "../Context/StateContext";
 
 const Product = () => {
   const params = useParams();
-  console.log(params);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState(null);
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   useEffect(() => {
     client
@@ -20,10 +18,6 @@ const Product = () => {
       .then((data) => setProduct(data))
       .catch(console.error);
   }, []);
-
-  console.log(product);
-
-  const images = [OptimumWhey, DymatizeProtein];
 
   if (!product) return <div>Loading...</div>;
 
@@ -63,20 +57,23 @@ const Product = () => {
         <div className="quantity flex items-center gap-[10px]">
           <button
             className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
-            onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}
+            onClick={decQty}
           >
             -
           </button>
-          {quantity}
+          {qty}
           <button
             className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
-            onClick={() => setQuantity((prev) => prev + 1)}
+            onClick={incQty}
           >
             +
           </button>
         </div>
         <div className="add flex flex-col gap-[20px]">
-          <button className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded hover:bg-[#29aa58] ease-in-out duration-300">
+          <button
+            onClick={() => onAdd(product, qty)}
+            className="bg-[#22C55E] text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded hover:bg-[#29aa58] ease-in-out duration-300"
+          >
             <RiShoppingCartLine /> Add to Cart
           </button>
           <div className="links flex gap-[20px]">
