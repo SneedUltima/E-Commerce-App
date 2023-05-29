@@ -63,7 +63,9 @@ const Cart = () => {
                       <p className="text-md font-semibold">{item?.name}</p>
                     </div>
                     <div>
-                      <p className="text-xl font-semibold">${item?.price}</p>
+                      <p className="text-xl font-semibold">
+                        ${item?.price * item?.quantity}
+                      </p>
                     </div>
                   </div>
                   <div className="flex justify-between">
