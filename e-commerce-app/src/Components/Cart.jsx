@@ -69,21 +69,21 @@ const Cart = () => {
                   <div className="flex justify-between">
                     <div className="quantity flex items-center gap-[10px]">
                       <button
-                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full"
+                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full mr-2"
                         onClick={() => toggleCartItemQuantity(item._id, "dec")}
                       >
                         -
                       </button>
                       {item.quantity}
                       <button
-                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full"
+                        className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full ml-2"
                         onClick={() => toggleCartItemQuantity(item._id, "inc")}
                       >
                         +
                       </button>
                     </div>
                     <button onClick={() => onRemove(item)} className="bg-white">
-                      <AiOutlineDelete className=" text-red-500 text-2xl hover:text-red-800" />
+                      <AiOutlineDelete className=" text-red-500 text-2xl hover:text-red-800 ease-in-out duration-300" />
                     </button>
                   </div>
                 </div>
