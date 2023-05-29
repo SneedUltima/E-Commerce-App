@@ -21,6 +21,8 @@ const Product = () => {
 
   if (!product) return <div>Loading...</div>;
 
+  console.log(product);
+
   return (
     <div className="product py-[20px] px-[50px] flex gap-[50px]">
       <div className="left flex gap-[20px] basis-3/6">
@@ -29,22 +31,22 @@ const Product = () => {
             className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
             src={urlFor(product.image[0])}
             alt=""
-            onClick={(e) => setSelectedImage(product.image[0])}
+            onClick={(e) => setSelectedImage(0)}
           />
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer"
-            src={urlFor(product.image[0])}
+            src={urlFor(product.backimage[0])}
             alt=""
-            onClick={(e) => setSelectedImage(product.image[0])}
+            onClick={(e) => setSelectedImage(1)}
           />
         </div>
         <div className="mainImg basis-4/5">
           <img
             className="w-[100%] max-h-[800px] object-contain cursor-pointer"
             src={
-              setSelectedImage === 0
+              selectedImage === 0
                 ? urlFor(product.image[0])
-                : urlFor(product.image[0])
+                : urlFor(product.backimage[0])
             }
             alt=""
           />
