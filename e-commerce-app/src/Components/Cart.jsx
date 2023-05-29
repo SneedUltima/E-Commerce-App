@@ -48,10 +48,10 @@ const Cart = () => {
             </Link>
           </div>
         )}
-        <div className=" overflow-auto max-h-[70vh]">
+        <div className=" overflow-auto max-h-[70vh] px-4">
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
-              <div key={item._id} className="flex mb-10 gap-[30px]">
+              <div key={item?._id} className="flex mb-10 gap-[30px]">
                 <img
                   className="w-[25%] h-[25%]"
                   src={urlFor(item?.image[0])}
@@ -60,24 +60,24 @@ const Cart = () => {
                 <div className="flex flex-col justify-between w-full">
                   <div className="flex flex-col">
                     <div>
-                      <p className="text-lg  font-semibold">{item.name}</p>
+                      <p className="text-md font-semibold">{item?.name}</p>
                     </div>
                     <div>
-                      <p className="text-xl font-semibold">${item.price}</p>
+                      <p className="text-xl font-semibold">${item?.price}</p>
                     </div>
                   </div>
                   <div className="flex justify-between">
                     <div className="quantity flex items-center gap-[10px]">
                       <button
                         className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full mr-2"
-                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
+                        onClick={() => toggleCartItemQuantity(item?._id, "dec")}
                       >
                         -
                       </button>
-                      {item.quantity}
+                      {item?.quantity}
                       <button
                         className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 rounded-full ml-2"
-                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                        onClick={() => toggleCartItemQuantity(item?._id, "inc")}
                       >
                         +
                       </button>
