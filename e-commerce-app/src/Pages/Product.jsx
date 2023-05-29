@@ -56,14 +56,14 @@ const Product = () => {
         <p className="font-[18px] text-justify">{product?.details}</p>
         <div className="quantity flex items-center gap-[10px]">
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 mr-2"
             onClick={decQty}
           >
             -
           </button>
           {qty}
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 ml-2"
             onClick={incQty}
           >
             +
