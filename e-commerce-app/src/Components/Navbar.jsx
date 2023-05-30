@@ -61,7 +61,7 @@ const Navbar = () => {
               <RiShoppingCartLine className=" cursor-pointer text-gray-600 h-5 w-5 relative" />
               <span
                 className=" text-sm bg-green-500 text-white
-              h-5 w-5 rounded-full absolute right-[5px] top-[20px] flex items-center justify-center"
+              h-5 w-5 rounded-full absolute right-[5px] top-[20px] flex items-center justify-center cursor-pointer"
               >
                 {totalQuantities}
               </span>

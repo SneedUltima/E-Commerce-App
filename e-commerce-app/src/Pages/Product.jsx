@@ -29,13 +29,13 @@ const Product = () => {
         <div className="images basis-1/5">
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
-            src={urlFor(product.image[0])}
+            src={urlFor(product?.image[0])}
             alt=""
             onClick={(e) => setSelectedImage(0)}
           />
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer"
-            src={urlFor(product.backimage[0])}
+            src={urlFor(product?.backimage[0])}
             alt=""
             onClick={(e) => setSelectedImage(1)}
           />
@@ -45,8 +45,8 @@ const Product = () => {
             className="w-[100%] max-h-[800px] object-contain cursor-pointer"
             src={
               selectedImage === 0
-                ? urlFor(product.image[0])
-                : urlFor(product.backimage[0])
+                ? urlFor(product?.image[0])
+                : urlFor(product?.backimage[0])
             }
             alt=""
           />

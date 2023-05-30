@@ -102,7 +102,7 @@ const Cart = () => {
           </div>
         )}
         {cartItems.length >= 1 && (
-          <button className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[10px] hover:bg-[#223e85] ease-in-out duration-300">
+          <button className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[30px] hover:bg-[#223e85] ease-in-out duration-300">
             Proceed to Checkout
           </button>
         )}
