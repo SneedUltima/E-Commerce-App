@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import OptimumWhey from "../img/optimumwhey.jpg";
 import { AiOutlineDelete, AiOutlineShoppingCart } from "react-icons/ai";
-import { Toast } from "react-hot-toast";
+import { Toast, toast } from "react-hot-toast";
 import { useStateContext } from "../Context/StateContext";
 import { urlFor } from "../lib/client";
 import { Link } from "react-router-dom";
+import { getStripe } from "../lib/getStripe";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -17,6 +17,29 @@ const Cart = () => {
     toggleCartItemQuantity,
     onRemove,
   } = useStateContext();
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch(
+      "http://localhost:4242/create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItems),
+      }
+    );
+
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    toast.loading("Redirecting...");
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
     <div
@@ -102,7 +125,10 @@ const Cart = () => {
           </div>
         )}
         {cartItems.length >= 1 && (
-          <button className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[30px] hover:bg-[#223e85] ease-in-out duration-300">
+          <button
+            onClick={handleCheckout}
+            className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded mb-[30px] hover:bg-[#223e85] ease-in-out duration-300"
+          >
             Proceed to Checkout
           </button>
         )}

@@ -21,8 +21,6 @@ const Product = () => {
 
   if (!product) return <div>Loading...</div>;
 
-  console.log(product);
-
   return (
     <div className="product py-[20px] px-[50px] flex gap-[50px]">
       <div className="left flex gap-[20px] basis-3/6">

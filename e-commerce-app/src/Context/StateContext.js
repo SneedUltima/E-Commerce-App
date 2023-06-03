@@ -27,18 +27,18 @@ export const StateContext = ({ children }) => {
     foundProduct = cartItems.find((item) => item._id === id);
 
     if (value === "inc") {
-      const updatedData = cartItems.map((item) =>
+      const updatedCartData = cartItems.map((item) =>
         item._id === id ? { ...item, quantity: item.quantity + 1 } : item
       );
-      setCartItems(updatedData);
+      setCartItems(updatedCartData);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
     } else if (value === "dec") {
       if (foundProduct.quantity > 1) {
-        const updatedData = cartItems.map((item) =>
+        const updatedCartData = cartItems.map((item) =>
           item._id === id ? { ...item, quantity: item.quantity - 1 } : item
         );
-        setCartItems(updatedData);
+        setCartItems(updatedCartData);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
       }

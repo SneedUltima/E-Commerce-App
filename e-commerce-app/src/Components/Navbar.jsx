@@ -11,8 +11,6 @@ import { useStateContext } from "../Context/StateContext";
 const Navbar = () => {
   const { totalQuantities, showCart, setShowCart } = useStateContext();
 
-  console.log(totalQuantities);
-
   return (
     <div className="navbar h-[80px]">
       <div className="wrapper flex justify-between px-3 py-4">
