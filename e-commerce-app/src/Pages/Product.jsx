@@ -27,24 +27,24 @@ const Product = () => {
         <div className="images basis-1/5">
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
-            src={urlFor(product.image[0])}
+            src={urlFor(product?.image[0])}
             alt=""
-            onClick={(e) => setSelectedImage(product.image[0])}
+            onClick={(e) => setSelectedImage(0)}
           />
           <img
             className="w-[100%] h-[150px] object-contain cursor-pointer"
-            src={urlFor(product.image[0])}
+            src={urlFor(product?.backimage[0])}
             alt=""
-            onClick={(e) => setSelectedImage(product.image[0])}
+            onClick={(e) => setSelectedImage(1)}
           />
         </div>
         <div className="mainImg basis-4/5">
           <img
             className="w-[100%] max-h-[800px] object-contain cursor-pointer"
             src={
-              setSelectedImage === 0
-                ? urlFor(product.image[0])
-                : urlFor(product.image[0])
+              selectedImage === 0
+                ? urlFor(product?.image[0])
+                : urlFor(product?.backimage[0])
             }
             alt=""
           />
@@ -56,14 +56,14 @@ const Product = () => {
         <p className="font-[18px] text-justify">{product?.details}</p>
         <div className="quantity flex items-center gap-[10px]">
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 mr-2"
             onClick={decQty}
           >
             -
           </button>
           {qty}
           <button
-            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200"
+            className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 ml-2"
             onClick={incQty}
           >
             +

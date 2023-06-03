@@ -13,6 +13,15 @@ export default {
       },
     },
     {
+      name: 'backimage',
+      title: ' Backimage',
+      type: 'array',
+      of: [{type: 'image'}],
+      options: {
+        hotspot: 'true',
+      },
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'string',
