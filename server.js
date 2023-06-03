@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-const YOUR_DOMAIN = "http://localhost:4242";
+const YOUR_DOMAIN = "http://localhost:3000";
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
