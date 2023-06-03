@@ -15,10 +15,6 @@ const Navbar = () => {
     <div className="navbar h-[80px]">
       <div className="wrapper flex justify-between px-3 py-4">
         <div className="left flex gap-5 items-center">
-          <div className="flex items-center">
-            <span>AUD</span>
-            <RiArrowDownSLine className=" w-5" />
-          </div>
           <div>
             <Link to="/products/preworkout">Preworkout</Link>
           </div>
