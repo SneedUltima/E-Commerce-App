@@ -35,19 +35,20 @@ const Footer = () => {
           <div className="right-left max-w-[500px]">
             <h1 className="text-xl font-bold text-gray-600">About</h1>
             <span className=" text-center text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nihil
-              quidem repellat, eveniet culpa nesciunt debitis eius repudiandae
-              inventore animi vero sit impedit nobis repellendus iste, ut ad
-              possimus officia.
+              At Rush Supplements, we are more than just a supplement provider.
+              We understand that your fitness journey is unique, and that's why
+              we have curated a range of premium supplements designed to support
+              you every step of the way.
             </span>
           </div>
           <div className="right-right max-w-[500px]">
             <h1 className="text-xl font-bold text-gray-600">Contact</h1>
             <span className=" text-center text-gray-500">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Recusandae, facere pariatur ut esse fugit magnam sapiente alias
-              necessitatibus accusantium. Eaque alias culpa amet fugiat
-              adipisci?
+              Have a question, need assistance, or simply want to connect with
+              our team? We're here for you every step of the way. At Rush
+              Supplements, we prioritize your satisfaction and are dedicated to
+              providing exceptional customer service. Contact us today and let
+              us assist you in your fitness journey.
             </span>
           </div>
         </div>
