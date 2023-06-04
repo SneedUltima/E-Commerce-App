@@ -12,8 +12,8 @@ const Products = () => {
   const [sort, setSort] = useState("desc");
 
   return (
-    <div className="px-[50px] py-[30px] flex">
-      <div className="left basis-3/12 sticky h-[100%] top-[50px]">
+    <div className="px-[50px] py-[30px] flex flex-col md:flex-row">
+      <div className="left basis-3/12 sticky h-[100%] top-[50px] flex flex-row md:flex-col justify-between md:justify-normal mb-5 md:mb-0">
         <div className="filterItem mb-[30px]">
           <h2 className="font-bold text-xl mb-[20px]">Filter By Price</h2>
           <div className="inputItem">
@@ -22,7 +22,6 @@ const Products = () => {
               type="range"
               min={0}
               max={120}
-              value={120}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span className="font-semibold ml-[10px]">${maxPrice}</span>
@@ -65,21 +64,21 @@ const Products = () => {
               <img
                 src={proteinBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
               />
             ),
             "preworkout": (
               <img
                 src={preworkoutBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
               />
             ),
             "accessories": (
               <img
                 src={accessoriesBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
               />
             ),
           }[catId]
