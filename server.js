@@ -50,7 +50,7 @@ app.post("/create-checkout-session", async (req, res) => {
         };
       }),
       success_url: `${YOUR_DOMAIN}/success`,
-      cancel_url: `${YOUR_DOMAIN}/canceled`,
+      cancel_url: `${YOUR_DOMAIN}`,
     };
 
     const session = await stripe.checkout.sessions.create(params);
