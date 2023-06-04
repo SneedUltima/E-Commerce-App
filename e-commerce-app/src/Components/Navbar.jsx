@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { BsSearch } from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { MdPersonOutline } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { RiShoppingCartLine } from "react-icons/ri";
@@ -10,43 +11,42 @@ import { useStateContext } from "../Context/StateContext";
 
 const Navbar = () => {
   const { totalQuantities, showCart, setShowCart } = useStateContext();
+  const [nav, setNav] = useState(false);
+  const handleClick = () => setNav(!nav);
 
   return (
     <div className="navbar h-[80px]">
-      <div className="wrapper flex justify-between px-3 py-4">
-        <div className="left flex gap-5 items-center">
+      <div className="wrapper flex items-center justify-between px-10 py-4">
+        <div className="left gap-5 items-center w-[30%] hidden lg:flex h-full ">
           <div>
-            <Link to="/products/preworkout">Preworkout</Link>
+            <Link className="hover:text-slate-600" to="/products/preworkout">
+              Preworkout
+            </Link>
           </div>
           <div>
-            <Link to="/products/protein">Protein</Link>
+            <Link className="hover:text-slate-600" to="/products/protein">
+              Protein
+            </Link>
           </div>
           <div>
-            <Link to="/products/accessories">Accessories</Link>
+            <Link className="hover:text-slate-600" to="/products/accessories">
+              Accessories
+            </Link>
           </div>
         </div>
-        <div className="center font-['Kanit'] text-2xl">
+        <div className="center flex justify-center font-['Kanit'] md:text-2xl text-lg min-w-[40%] h-full whitespace-nowrap text-[rgb(6,24,70)]">
           <Link to="/">Rush Supplements</Link>
         </div>
-        <div className="right flex gap-5 items-center">
-          <div>
-            <Link to="/">Home</Link>
-          </div>
-          <div>
-            <Link to="/">About</Link>
-          </div>
-          <div>
-            <Link to="/">Contact</Link>
-          </div>
+        <div className="right flex justify-end gap-5 items-center min-w-[30%] h-full">
           <div className="flex items-center gap-2">
             <div>
-              <BsSearch className=" cursor-pointer text-gray-600 h-5 w-5" />
+              <BsSearch className="hidden lg:flex cursor-pointer text-gray-600 h-5 w-5" />
             </div>
             <div>
-              <MdPersonOutline className=" cursor-pointer text-gray-600 h-5 w-5" />
+              <MdPersonOutline className="hidden lg:flex cursor-pointer text-gray-600 h-5 w-5" />
             </div>
             <div>
-              <AiOutlineHeart className=" cursor-pointer text-gray-600 h-5 w-5" />
+              <AiOutlineHeart className="hidden lg:flex cursor-pointer text-gray-600 h-5 w-5" />
             </div>
             <div
               onClick={() => setShowCart(!showCart)}
@@ -54,8 +54,8 @@ const Navbar = () => {
             >
               <RiShoppingCartLine className=" cursor-pointer text-gray-600 h-5 w-5 relative" />
               <span
-                className=" text-sm bg-green-500 text-white
-              h-5 w-5 rounded-full absolute right-[5px] top-[20px] flex items-center justify-center cursor-pointer"
+                className=" text-sm bg-[rgb(6,24,70)] text-white
+              h-5 w-5 rounded-full absolute right-[35px] top-[20px] flex items-center justify-center cursor-pointer"
               >
                 {totalQuantities}
               </span>

@@ -4,9 +4,9 @@ import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 const Contact = () => {
   return (
     <div className="wrapper bg-[#223e85] p-[20px] flex justify-center items-center">
-      <div className="flex gap-20 justify-center items-center">
-        <span className="text-white font-bold">GET IN TOUCH WITH US.</span>
-        <div className="mail">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-20 justify-center items-center">
+        <span className="text-white">GET IN TOUCH WITH US.</span>
+        <div className="mail flex">
           <input
             className="p-[10px] border-none rounded-l-lg"
             type="text"

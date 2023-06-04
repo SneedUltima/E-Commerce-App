@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="my-[50px] mx-[100px] flex flex-col gap-4">
-      <div className="top flex justify-between gap-14">
+    <div className="my-[50px] mx-4 md:mx-[100px] flex flex-col gap-4">
+      <div className="top flex justify-center md:justify-between gap-14">
         <div className="left flex gap-10">
           <div className="left-left flex-col">
             <h1 className="text-xl  font-bold text-gray-600">Categories</h1>
@@ -31,7 +31,7 @@ const Footer = () => {
             <span className="text-gray-500">Cookies</span>
           </div>
         </div>
-        <div className="right flex gap-10">
+        <div className="right hidden md:flex gap-10">
           <div className="right-left max-w-[500px]">
             <h1 className="text-xl font-bold text-gray-600">About</h1>
             <span className=" text-center text-gray-500">
@@ -54,7 +54,7 @@ const Footer = () => {
       </div>
 
       <div className="bottom flex justify-between">
-        <div className="bottom-left flex gap-2 items-center">
+        <div className="bottom-left flex md:flex-row flex-col gap-2 md:items-center">
           <div className="font-['Kanit'] text-xl">
             <Link to="/">Rush Supplements</Link>
           </div>

@@ -16,13 +16,19 @@ const Success = () => {
 
   return (
     <div className="min-h-[60vh] mx-auto">
-      <div className=" bg-slate-100 w-[1000px] mx-auto mt-[100px] p-[50px] rounded-xl flex justify-center items-center flex-col">
+      <div className=" bg-slate-100 w-[400px] md:w-[1000px] mx-auto mt-[100px] p-[50px] rounded-xl flex justify-center items-center flex-col">
         <p>
           <BsBagCheckFill className=" text-[50px]" />
         </p>
-        <h1 className="font-bold text-xl mt-5">Thank you for your purchase!</h1>
-        <p>Check your email for your receipt</p>
-        <p className="mt-5">Please reach out for any questions at</p>
+        <h1 className="font-bold text-xl mt-5 text-center md:text-left">
+          Thank you for your purchase!
+        </h1>
+        <p className=" text-center md:text-left">
+          Check your email for your receipt
+        </p>
+        <p className="mt-5 text-center md:text-left">
+          Please reach out for any questions at
+        </p>
         <a className="font-semibold" href="mailto:order@examplemail.com">
           order@examplemail.com
         </a>

@@ -19,7 +19,7 @@ const Slider = () => {
   ];
 
   return (
-    <div className="slider h-[calc(100vh-80px)] w-[100vw] relative overflow-hidden">
+    <div className="slider md:h-[calc(100vh-80px)] h-[calc(65vh-80px)] w-[100vw] relative overflow-hidden">
       <div
         className="w-[300vw] h-[100%] flex duration-700"
         style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
