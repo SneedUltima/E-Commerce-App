@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Banner from "../img/banner.jpeg";
 import List from "../Components/List";
 import { useParams } from "react-router-dom";
-import proteinBanner from "../img/protein-banner.jpg";
+import proteinBanner from "../img/protein-banner.png";
 import accessoriesBanner from "../img/accessories-banner.jpg";
 import preworkoutBanner from "../img/preworkout-banner.jpg";
 
@@ -68,21 +67,21 @@ const Products = () => {
               <img
                 src={proteinBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
+                className="w-[100%] h-[300px] object-fill mb-[40px] hidden md:flex"
               />
             ),
             "preworkout": (
               <img
                 src={preworkoutBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
+                className="w-[100%] h-[300px] object-cover mb-[40px] hidden md:flex"
               />
             ),
             "accessories": (
               <img
                 src={accessoriesBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px] hidden md:flex"
+                className="w-[100%] h-[300px] object-cover mb-[40px] hidden md:flex"
               />
             ),
           }[catId]

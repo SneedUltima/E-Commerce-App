@@ -14,7 +14,7 @@ const Card = ({ item }) => {
           />
         </div>
         <div>
-          <h2 className=" text-lg font-semibold leading-6 truncate">
+          <h2 className=" md:text-lg font-semibold leading-6 text-center md:text-left text-sm md:truncate">
             {item.name}
           </h2>
         </div>

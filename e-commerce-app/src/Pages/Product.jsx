@@ -55,7 +55,7 @@ const Product = () => {
           {product?.name}
         </h1>
         <span className="text-[30px] font-semibold">${product?.price}</span>
-        <p className="md:text-[18px] text-[16px] text-justify">
+        <p className="md:text-[22px] text-[16px] text-justify md:pr-40 md:leading-8">
           {product?.details}
         </p>
         <div className="quantity flex items-center gap-[10px]">

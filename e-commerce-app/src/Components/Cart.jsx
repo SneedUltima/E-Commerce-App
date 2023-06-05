@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { AiOutlineDelete, AiOutlineShoppingCart } from "react-icons/ai";
-import { Toast, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useStateContext } from "../Context/StateContext";
 import { urlFor } from "../lib/client";
 import { Link } from "react-router-dom";
