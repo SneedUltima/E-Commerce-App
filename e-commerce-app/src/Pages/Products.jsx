@@ -13,9 +13,11 @@ const Products = () => {
 
   return (
     <div className="px-[50px] py-[30px] flex flex-col md:flex-row">
-      <div className="left basis-3/12 sticky h-[100%] top-[50px] flex flex-row md:flex-col justify-between md:justify-normal mb-5 md:mb-0">
+      <div className="left basis-3/12 md:sticky h-[100%] top-[50px] flex flex-col justify-between md:justify-normal mb-5 md:mb-0 items-center md:items-baseline">
         <div className="filterItem mb-[30px]">
-          <h2 className="font-bold text-xl mb-[20px]">Filter By Price</h2>
+          <h2 className="font-bold text-xl mb-[20px] text-center md:text-left">
+            Filter By Price
+          </h2>
           <div className="inputItem">
             <span className="font-semibold mr-[10px]">$0</span>
             <input
@@ -28,7 +30,9 @@ const Products = () => {
           </div>
         </div>
         <div className="filterItem">
-          <h2 className="font-bold text-xl mb-[20px]">Sort By</h2>
+          <h2 className="font-bold text-xl mb-[20px] text-center md:text-left">
+            Sort By
+          </h2>
           <div className="inputItem">
             <div>
               <input

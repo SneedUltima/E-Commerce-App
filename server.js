@@ -31,7 +31,8 @@ app.post("/create-checkout-session", async (req, res) => {
             "image-",
             "https://cdn.sanity.io/images/2x4y1z9t/production/"
           )
-          .replace("-jpg", ".jpg");
+          .replace("-jpg", ".jpg")
+          .replace("-webp", ".webp");
 
         return {
           price_data: {

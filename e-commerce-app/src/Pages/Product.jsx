@@ -22,11 +22,11 @@ const Product = () => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="product py-[20px] px-[50px] flex md:flex-row flex-col gap-[10px]  md:gap-[50px]">
+    <div className="product py-[20px] px-[50px] flex md:flex-row flex-col gap-[10px] md:gap-[50px]">
       <div className="left flex gap-[20px] basis-3/6">
         <div className="images basis-1/5">
           <img
-            className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
+            className="w-[100%] h-[150px] object-contain cursor-pointer md:mb-[10px]"
             src={urlFor(product?.image[0])}
             alt=""
             onClick={(e) => setSelectedImage(0)}

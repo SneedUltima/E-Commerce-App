@@ -7,7 +7,7 @@ const FeaturedProjects = ({ type }) => {
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "product" && featured == true]`)
+      .fetch(`*[_type == "product" && trending == true]`)
       .then((data) => setProducts(data))
       .catch(console.error);
   }, []);
@@ -15,7 +15,9 @@ const FeaturedProjects = ({ type }) => {
   return (
     <div className="lg:my-[100px] xl:mx-[400px] mx-10 mt-10">
       <div className="top flex flex-col md:flex-row items-center md:justify-between mb-[50px]">
-        <h1 className="text-2xl font-bold  md:basis-2/5">Featured Protein</h1>
+        <h1 className="text-2xl font-bold  md:basis-2/5">
+          Trending Preworkout
+        </h1>
         <p className="md:basis-3/5 text-gray-500 text-center md:text-left">
           {type === "Featured"
             ? "When it comes to achieving your fitness goals, protein is an absolute game-changer. That's why we've curated a selection of the finest, high-quality proteins that will supercharge your training and help you reach new heights of strength and muscle gains."
