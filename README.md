@@ -7,7 +7,7 @@ App was developed to gain experience with React, Node and Express servers and St
 [View Application](https://helpful-dieffenbachia-34da37.netlify.app/)
 
 ### Features
-* Themed as a gym supplements store
+* Themed as a gym supplement store
 * Application connects to Sanity IO to present a range of products, including preworkouts, protein and gym accessories
 * User is able to inspect products for more information and add product to a cart
 * Application includes category pages where user can dynamically filter products on metrics like price
