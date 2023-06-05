@@ -15,7 +15,7 @@ const List = ({ catId, maxPrice, sort }) => {
   }, [catId, maxPrice, sort]);
 
   return (
-    <div className="flex justify-between flex-wrap">
+    <div className="flex justify-center md:gap-40 flex-wrap">
       {products?.map((item) => (
         <Card item={item} key={item._id} />
       ))}

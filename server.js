@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-const YOUR_DOMAIN = "http://localhost:4242";
+const YOUR_DOMAIN = "http://localhost:3000";
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
@@ -31,7 +31,8 @@ app.post("/create-checkout-session", async (req, res) => {
             "image-",
             "https://cdn.sanity.io/images/2x4y1z9t/production/"
           )
-          .replace("-jpg", ".jpg");
+          .replace("-jpg", ".jpg")
+          .replace("-webp", ".webp");
 
         return {
           price_data: {
@@ -49,8 +50,8 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: item.quantity,
         };
       }),
-      success_url: `${YOUR_DOMAIN}?success=true`,
-      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+      success_url: `${YOUR_DOMAIN}/success`,
+      cancel_url: `${YOUR_DOMAIN}`,
     };
 
     const session = await stripe.checkout.sessions.create(params);

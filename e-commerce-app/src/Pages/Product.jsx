@@ -22,11 +22,11 @@ const Product = () => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="product py-[20px] px-[50px] flex gap-[50px]">
+    <div className="product py-[20px] px-[50px] flex md:flex-row flex-col gap-[10px] md:gap-[50px]">
       <div className="left flex gap-[20px] basis-3/6">
         <div className="images basis-1/5">
           <img
-            className="w-[100%] h-[150px] object-contain cursor-pointer mb-[10px]"
+            className="w-[100%] h-[150px] object-contain cursor-pointer md:mb-[10px]"
             src={urlFor(product?.image[0])}
             alt=""
             onClick={(e) => setSelectedImage(0)}
@@ -50,10 +50,14 @@ const Product = () => {
           />
         </div>
       </div>
-      <div className="right flex flex-col gap-[30px] basis-3/6">
-        <h1 className="font-bold text-3xl">{product?.name}</h1>
+      <div className="right flex flex-col gap-[15px] md:gap-[30px] basis-3/6 items-center md:items-baseline">
+        <h1 className="font-bold text-xl md:text-3xl text-center md:text-left">
+          {product?.name}
+        </h1>
         <span className="text-[30px] font-semibold">${product?.price}</span>
-        <p className="font-[18px] text-justify">{product?.details}</p>
+        <p className="md:text-[22px] text-[16px] text-justify md:pr-40 md:leading-8">
+          {product?.details}
+        </p>
         <div className="quantity flex items-center gap-[10px]">
           <button
             className="w-[50px] h-[50px] flex items-center justify-center cursor-pointer border-none bg-slate-200 hover:bg-slate-300 ease-in-out duration-200 mr-2"
@@ -69,7 +73,7 @@ const Product = () => {
             +
           </button>
         </div>
-        <div className="add flex flex-col gap-[20px]">
+        <div className="add flex flex-col gap-[20px] items-center md:items-baseline">
           <button
             onClick={() => onAdd(product, qty)}
             className="text-white p-[10px] w-[250px] flex items-center justify-center gap-[20px] cursor-pointer border-none font-semibold rounded ease-in-out duration-300 hover:bg-[#223e85]"
@@ -77,10 +81,10 @@ const Product = () => {
             <RiShoppingCartLine /> Add to Cart
           </button>
           <div className="links flex gap-[20px]">
-            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)]">
+            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)] text-xs md:text-base mt-2 md:mt-0">
               <AiOutlineHeart /> Add to Wishlist
             </div>
-            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)]">
+            <div className="item flex items-center gap-[10px] text-[rgb(6,24,70)] text-xs md:text-base mt-2 md:mt-0">
               <FaBalanceScale /> Add to Compare
             </div>
           </div>

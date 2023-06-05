@@ -4,6 +4,7 @@ import Products from "./Pages/Products";
 import Product from "./Pages/Product";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import Success from "./Pages/Success";
 
 const Layout = () => {
   return (
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
     ],
   },

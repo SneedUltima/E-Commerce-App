@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const Context = createContext();
@@ -92,8 +92,11 @@ export const StateContext = ({ children }) => {
         showCart,
         setShowCart,
         cartItems,
+        setCartItems,
         totalPrice,
+        setTotalPrice,
         totalQuantities,
+        setTotalQuantities,
         qty,
         incQty,
         decQty,

@@ -51,8 +51,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'isNew',
-      title: 'IsNew',
+      name: 'trending',
+      title: 'Trending',
+      type: 'boolean',
+    },
+    {
+      name: 'featured',
+      title: 'Featured',
       type: 'boolean',
     },
     {

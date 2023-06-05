@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Banner from "../img/banner.jpeg";
 import List from "../Components/List";
 import { useParams } from "react-router-dom";
-import proteinBanner from "../img/protein-banner.jpg";
+import proteinBanner from "../img/protein-banner.png";
 import accessoriesBanner from "../img/accessories-banner.jpg";
 import preworkoutBanner from "../img/preworkout-banner.jpg";
 
@@ -12,24 +11,27 @@ const Products = () => {
   const [sort, setSort] = useState("desc");
 
   return (
-    <div className="px-[50px] py-[30px] flex">
-      <div className="left basis-3/12 sticky h-[100%] top-[50px]">
+    <div className="px-[50px] py-[30px] flex flex-col md:flex-row">
+      <div className="left basis-3/12 md:sticky h-[100%] top-[50px] flex flex-col justify-between md:justify-normal mb-5 md:mb-0 items-center md:items-baseline">
         <div className="filterItem mb-[30px]">
-          <h2 className="font-bold text-xl mb-[20px]">Filter By Price</h2>
+          <h2 className="font-bold text-xl mb-[20px] text-center md:text-left">
+            Filter By Price
+          </h2>
           <div className="inputItem">
             <span className="font-semibold mr-[10px]">$0</span>
             <input
               type="range"
               min={0}
               max={120}
-              value={120}
               onChange={(e) => setMaxPrice(e.target.value)}
             />
             <span className="font-semibold ml-[10px]">${maxPrice}</span>
           </div>
         </div>
         <div className="filterItem">
-          <h2 className="font-bold text-xl mb-[20px]">Sort By</h2>
+          <h2 className="font-bold text-xl mb-[20px] text-center md:text-left">
+            Sort By
+          </h2>
           <div className="inputItem">
             <div>
               <input
@@ -65,21 +67,21 @@ const Products = () => {
               <img
                 src={proteinBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-fill mb-[40px] hidden md:flex"
               />
             ),
             "preworkout": (
               <img
                 src={preworkoutBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-cover mb-[40px] hidden md:flex"
               />
             ),
             "accessories": (
               <img
                 src={accessoriesBanner}
                 alt="product banner"
-                className="w-[100%] h-[300px] object-cover mb-[10px]"
+                className="w-[100%] h-[300px] object-cover mb-[40px] hidden md:flex"
               />
             ),
           }[catId]

@@ -14,7 +14,9 @@ const Card = ({ item }) => {
           />
         </div>
         <div>
-          <h2 className=" text-lg font-semibold leading-6">{item.name}</h2>
+          <h2 className=" md:text-lg font-semibold leading-6 text-center md:text-left text-sm md:truncate">
+            {item.name}
+          </h2>
         </div>
         <div className="flex gap-[20px]">
           <h3 className=" text-xl font-bold text-slate-400 line-through">
