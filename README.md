@@ -14,7 +14,7 @@ App was developed to gain experience with React, Node and Express servers and St
 * Cart logic allows the user to change and remove quantities of products from cart
 * User is able to proceed with their cart to a fully integrated Stripe checkout page and make a fake payment for their products
 
-<img src="https://i.ibb.co/ZHjLXVx/store.jpg" width="500" height="400"/>
+<img src="https://i.ibb.co/ZHjLXVx/store.jpg" width="700" height="400"/>
 
 ## How to run the application in your browser
 
