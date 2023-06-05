@@ -24,7 +24,7 @@ In the initial project directory, you can run:
 
 Runs the express server on Localhost Port 4242.
 
-The switch to the lower e-commerce-app directory and run:
+Then switch to the lower e-commerce-app folder directory and run:
 
 ### `npm start`
 
