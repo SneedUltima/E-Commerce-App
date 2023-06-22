@@ -22,7 +22,7 @@ const Cart = () => {
     const stripe = await getStripe();
 
     const response = await fetch(
-      "http://localhost:4242/create-checkout-session",
+      "https://e-commerce-rush-api.onrender.com/create-checkout-session",
       {
         method: "POST",
         headers: {
