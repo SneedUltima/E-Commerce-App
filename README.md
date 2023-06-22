@@ -4,7 +4,7 @@
 
 App was developed to gain experience with React, Node and Express servers and Stripe integration in an E-Commerce store.
 
-[View Application](https://helpful-dieffenbachia-34da37.netlify.app/)
+[View Application](https://comfy-sawine-23f707.netlify.app/)
 
 ### Features
 * Themed as a gym supplement store
