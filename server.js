@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-const YOUR_DOMAIN = "http://localhost:3000";
+const YOUR_DOMAIN = "https://comfy-sawine-23f707.netlify.app";
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
